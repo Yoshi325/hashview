@@ -44,7 +44,7 @@ These are your notifications.
                             </td>
                             <td>{{ job_notification.method }}</td>
                             <td>
-                                <button type="button" class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#deleteJobNotificationModal{{job_notification.id}}" title=Delete></button>
+                                <button type="button" class="bi bi-trash btn btn-danger" data-toggle="modal" data-target="#deleteJobNotificationModal{{job_notification.id}}" title=Delete></button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -66,7 +66,7 @@ These are your notifications.
                             <td>
                                 {% for hash in hashes %}
                                     {% if hash_notification.hash_id == hash.id %}
-                                        {{ hash.ciphertext }} 
+                                        {{ hash.ciphertext }}
                                         </td>
                                         <td>
                                         {{ hash.hash_type }}
@@ -77,7 +77,7 @@ These are your notifications.
                                 {{hash_notification.method}}
                             </td>
                             <td>
-                                <a class="fa fa-trash btn btn-danger" href="/notifications/delete/hash/{{hash_notification.id}}" role="button", title=Delete></a>
+                                <a class="bi bi-trash btn btn-danger" href="/notifications/delete/hash/{{hash_notification.id}}" role="button", title=Delete></a>
                             </td>
                         </tr>
                     {% endfor %}

@@ -46,10 +46,10 @@ The following are a list of Hash Files currently configured in Hashview. All Has
                                         {{hashfile.uploaded_at}}
                                     </td>
                                     <td>
-                                        <a class="fa fa-download btn btn-primary" href="/analytics/download?type=found&customer_id={{customer.id}}&hashfile_id={{hashfile.id}}" role="button" title=Download></a> 
-                                        <a class="fa fa-pie-chart btn btn-warning" href="/analytics?customer_id={{customer.id}}&hashfile_id={{hashfile.id}}" role="button" title=Analytics></a> 
-                                        <button type="button" class="fa fa-info btn btn-info" data-toggle="modal" data-target="#infoModal{{hashfile.id}}" title=Info></button>
-                                        <button type="button" class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{hashfile.id}}" title=Delete></button>
+                                        <a class="bi bi-download btn btn-primary" href="/analytics/download?type=found&customer_id={{customer.id}}&hashfile_id={{hashfile.id}}" role="button" title=Download></a>
+                                        <a class="bi bi-pie-chart btn btn-warning" href="/analytics?customer_id={{customer.id}}&hashfile_id={{hashfile.id}}" role="button" title=Analytics></a>
+                                        <button type="button" class="bi bi-info btn btn-info" data-toggle="modal" data-target="#infoModal{{hashfile.id}}" title=Info></button>
+                                        <button type="button" class="bi bi-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{hashfile.id}}" title=Delete></button>
                                     </td>
                                 </tr>
                             {% endif %}
@@ -86,7 +86,7 @@ The following are a list of Hash Files currently configured in Hashview. All Has
                                         {% endfor %}
                                         {% if associated_jobs.value == 0 %}
                                             <i>none</i><br>
-                                        {% endif %}                                        
+                                        {% endif %}
                                     </td>
                                 </tr>
                             </tbody>

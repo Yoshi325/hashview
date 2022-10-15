@@ -23,9 +23,9 @@ The following are a list of customers currently configured in Hashview. All Jobs
                         <tr>
                             <td>{{ customer.name }}</td>
                             <td>
-                                <button type="button" class="fa fa-info btn btn-info" data-toggle="modal" data-target="#infoModal{{customer.id}}" title=Info></button> 
-                                <a class="fa fa-pie-chart btn btn-warning" href="/analytics?customer_id={{customer.id}}" role="button" title=Analytics></a> 
-                                <button type="button" class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{customer.id}}" title=Delete></button>
+                                <button type="button" class="bi bi-info btn btn-info" data-toggle="modal" data-target="#infoModal{{customer.id}}" title=Info></button>
+                                <a class="bi bi-pie-chart btn btn-warning" href="/analytics?customer_id={{customer.id}}" role="button" title=Analytics></a>
+                                <button type="button" class="bi bi-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{customer.id}}" title=Delete></button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -64,7 +64,7 @@ The following are a list of customers currently configured in Hashview. All Jobs
                                     {% if hashfile.customer_id == customer.id %}
                                         {{ hashfile.name }} <br>
                                     {% endif %}
-                                {% endfor %}    
+                                {% endfor %}
                             </td>
                           </tr>
                       </tbody>

@@ -2,7 +2,7 @@
 {% block header %}
 <style>
     #remove_all{
-        margin-left: 13px;       
+        margin-left: 13px;
     }
 </style>
 <br>
@@ -22,9 +22,9 @@ The following are tasks that are assigned to the job. Each task is run once.
                     <th scope="col">Task Name</th>
                     <th scope="col">Type</th>
                     <th scope="col">Control
-                        <!--Only show delete all if tasks have been added--> 
-                        {% if (job_tasks is defined) and job_tasks.count() > 0 %}   
-                            <a id="remove_all" class="fa fa-trash btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" role="button" title="Remove all assigned tasks for this Job"></a>
+                        <!--Only show delete all if tasks have been added-->
+                        {% if (job_tasks is defined) and job_tasks.count() > 0 %}
+                            <a id="remove_all" class="bi bi-trash btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal" role="button" title="Remove all assigned tasks for this Job"></a>
                         {% endif %}
                     </th>
                   </tr>
@@ -47,9 +47,9 @@ The following are tasks that are assigned to the job. Each task is run once.
                                 {% endfor %}
                             </td>
                             <td>
-                                <a class="fa fa-arrow-up btn btn-success btn-sm" href="/jobs/{{job.id}}/move_task_up/{{job_task.task_id}}" role="button" title='Move Up'></a>
-                                <a class="fa fa-arrow-down btn btn-success btn-sm" href="/jobs/{{job.id}}/move_task_down/{{job_task.task_id}}" role="button" title='Move Down'></a>
-                                <a class="fa fa-trash btn btn-danger btn-sm" href="/jobs/{{job.id}}/remove_task/{{job_task.task_id}}" role="button" title='Delete'></a>
+                                <a class="bi bi-arrow-up btn btn-success btn-sm" href="/jobs/{{job.id}}/move_task_up/{{job_task.task_id}}" role="button" title='Move Up'></a>
+                                <a class="bi bi-arrow-down btn btn-success btn-sm" href="/jobs/{{job.id}}/move_task_down/{{job_task.task_id}}" role="button" title='Move Down'></a>
+                                <a class="bi bi-trash btn btn-danger btn-sm" href="/jobs/{{job.id}}/remove_task/{{job_task.task_id}}" role="button" title='Delete'></a>
                             </td>
                         </tr>
                     {% endfor %}
@@ -91,7 +91,7 @@ The following are tasks that are assigned to the job. Each task is run once.
                                 </div>
 
                                  <!-- DeleteAllTaskModal -->
-                                <div class="modal fade" id="deleteModal" tabindex="-1" 
+                                <div class="modal fade" id="deleteModal" tabindex="-1"
                                 aria-labelledby="deleteModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered">
                                     <div class="modal-content">

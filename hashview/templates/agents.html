@@ -1,27 +1,29 @@
 {% extends "layout.html"%}
+
 {% block header %}
-<br>
-<h1>Agents</h1>
-<br>
-Agents are remote workers that process distributed hashcat jobs.
-<br>
-Download Agent for deployment <a class="fa fa-download btn btn-success" href="/agents/download" role="button" title=Download></a>
-<br>
-<br>
+    <br>
+    <h1>Agents</h1>
+    <br>
+    Agents are remote workers that process distributed hashcat jobs.
+    <br>
+    Download Agent for deployment <a class="bi bi-download btn btn-success" href="/agents/download" role="button" title=Download></a>
+    <br>
+    <br>
 {% endblock header %}
+
 {% block content %}
     <article class="media content-section">
         <div class="media-body">
             <table class="table">
                 <thead>
-                  <tr>
-                    <th scope="col">Agent Name</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">IP</th>
-                    <th scope="col">Speed</th>
-                    <th scope="col">Last Heartbeat</th>
-                    <th scope="col">Control</th>                   
-                  </tr>
+                    <tr>
+                        <th scope="col">Agent Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">IP</th>
+                        <th scope="col">Speed</th>
+                        <th scope="col">Last Heartbeat</th>
+                        <th scope="col">Control</th>
+                    </tr>
                 </thead>
                 <tbody>
                     {% for agent in agents %}
@@ -33,41 +35,41 @@ Download Agent for deployment <a class="fa fa-download btn btn-success" href="/a
                             <td>{{ agent.last_checkin}}</td>
                             <td>
                                 {% if agent.status == 'Pending' %}
-                                    <a class="fa fa-check btn btn-success" href="/agents/{{agent.id}}/authorize" role="button" title=Authorize></a>
+                                <a class="bi bi-check btn btn-success" href="/agents/{{agent.id}}/authorize" role="button" title=Authorize></a>
                                 {% else %}
-                                    <a class="fa fa-close btn btn-secondary" href="/agents/{{agent.id}}/deauthorize" role="button" title=Deauthorize></a>
+                                <a class="bi bi-x btn btn-secondary" href="/agents/{{agent.id}}/deauthorize" role="button" title=Deauthorize></a>
                                 {% endif %}
-                                    <a class="fa fa-edit btn btn-warning" href="/agents/edit/{{agent.id}}" role="button" title=Edit></a>
-                                <button type="button" class="fa fa-trash fa-1x btn btn-danger" data-toggle="modal" data-target="#deleteModal{{agent.id}}" title=Delete></button>
+                                <a class="bi bi-pencil-square btn btn-warning" href="/agents/edit/{{agent.id}}" role="button" title=Edit></a>
+                                <button type="button" class="bi bi-trash btn btn-danger" style="font-size: 1em;" data-toggle="modal" data-target="#deleteModal{{agent.id}}" title=Delete></button>
                             </td>
                         </tr>
                     {% endfor %}
                 </tbody>
-              </table>
+            </table>
         </div>
     </article>
     {% for agent in agents %}
     <!-- DeleteModal -->
     <div class="modal fade" id="deleteModal{{agent.id}}" tabindex="-1" aria-labelledby="deleteModal{{agent.id}}Label" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="deleteModal{{agent.id}}Label">Delete: {{agent.name}} ?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModal{{agent.id}}Label">Delete: {{agent.name}} ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    This will permanantly delete the job. Are you sure you want to continue?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
+                    <form action="{{ url_for('agents.agents_delete', agent_id=agent.id) }}" method="POST">
+                        <input class="btn btn-danger" type="submit" value="Delete">
+                    </form>
+                </div>
             </div>
-            <div class="modal-body">
-            This will permanantly delete the job. Are you sure you want to continue?
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Back</button>
-            <form action="{{ url_for('agents.agents_delete', agent_id=agent.id) }}" method="POST">
-                <input class="btn btn-danger" type="submit" value="Delete">
-            </form>
-            </div>
-        </div>
         </div>
     </div>
-{% endfor %}
+    {% endfor %}
 {% endblock content %}

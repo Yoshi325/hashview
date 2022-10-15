@@ -32,9 +32,9 @@ Task Groups are a set of tasks that can be assigned to job.
                                 {% endfor %}
                             </td>
                             <td>
-                                <button type="button" class="fa fa-info btn btn-info" data-toggle="modal" data-target="#infoModal{{task_group.id}}" title=Info></button>
-                                <a class="fa fa-edit btn btn-warning" href="/task_groups/assigned_tasks/{{task_group.id}}" role="button" title=Edit></a>
-                                <button type="button" class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{task_group.id}}" title=Delete></button>
+                                <button type="button" class="bi bi-info btn btn-info" data-toggle="modal" data-target="#infoModal{{task_group.id}}" title=Info></button>
+                                <a class="bi bi-pencil-square btn btn-warning" href="/task_groups/assigned_tasks/{{task_group.id}}" role="button" title=Edit></a>
+                                <button type="button" class="bi bi-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{task_group.id}}" title=Delete></button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -57,7 +57,7 @@ Task Groups are a set of tasks that can be assigned to job.
                 <table class="table">
                     <thead>
                       <tbody>
-                          <tr>                              
+                          <tr>
                             <th scope="row">Associated Tasks</th>
                             <td>
                                 {% for task_group_task_entry in task_group.tasks.split(',') %}

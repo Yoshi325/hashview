@@ -10,7 +10,7 @@
     {% else %}
     <div id="agents" class="collapse hide">
     {% endif %}
-    
+
     <h2 class="mt-2">Agent Status</h2>
         <table class="table table-borderless" style="margin-bottom: 0px;">
         <tbody>
@@ -37,13 +37,13 @@
     </div>
     <br><br>
     {% if not running_jobs and not queued_jobs %}
-        <p class="mt-3">No Current Jobs</p> 
+        <p class="mt-3">No Current Jobs</p>
         <a class="btn btn-success btn-sm mt-1 mb-1" href="/jobs/add">Create a New Job</a>
     {% else %}
         <h2 class="d-lg-inline" class="mt-2">Running Jobs</h1>
         {% if not running_jobs %}
-            <p class="mt-3">No Running Jobs</p> 
-        {% else %}    
+            <p class="mt-3">No Running Jobs</p>
+        {% else %}
             {% for job in running_jobs %}
                 <div class="card" style="margin-bottom:5px;">
                 <div class="card-header" id="headingOne">
@@ -53,25 +53,25 @@
                             {% if job_task.job_id == job.id %}
                                 {% if job_task.status == 'Running' %}
                                     <span id="job_status" class="pull-right">Running</span>
-                                {% endif %} 
-                            {% endif %} 
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
-    
-                        {% for customer in customers%} 
+
+                        {% for customer in customers%}
                             {% if customer.id == job.customer_id %}
                                 {{ customer.name }}:
                             {% endif %}
                         {% endfor %}
-                        {{job.name}} 
+                        {{job.name}}
                         {% for user in users %}
                             {% if user.id == job.owner_id %}
                                 ({{ user.first_name }} {{ user.last_name }})
-                            {% endif %} 
+                            {% endif %}
                         {% endfor %}
                     </button>
                     </h5>
                 </div>
-            
+
                 <div id="collapse{{job.id}}" class="collapse multi-collapse show" aria-labelledby="heading{{job.id}}" data-parent="#accordion">
                     <div class="card-body">
                     {% set total = namespace(value=0) %}
@@ -90,7 +90,7 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-    
+
                     <div class="progress">
                         <div class="progress-bar" role="progressbar" style="width: {{ (tasks_completed.value / total.value) * 100 }}%" aria-valuenow="{{tasks_completed.value / total.value }}" aria-valuemin="0" aria-valuemax="100"> Completed </div>
                         <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{ (tasks_running.value / total.value) * 100 }}%" aria-valuenow="{{tasks_running.value / total.value }}" aria-valuemin="0" aria-valuemax="100">In Progress</div>
@@ -105,7 +105,7 @@
                             <th scope="col">Recovered</th>
                             <th scope="col">Rate</th>
                             <th scope="col">EST Completion</th>
-                            <th scope="col">Control</th>                   
+                            <th scope="col">Control</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -143,7 +143,7 @@
                                                 {% if agent.id == job_task.agent_id %}
                                                     {{ agent.benchmark }}
                                                 {% endif %}
-                                            {% endfor %}                                        
+                                            {% endfor %}
                                         </td>
                                         <td>
                                             {% for agent in agents %}
@@ -156,7 +156,7 @@
                                         </td>
                                         <td>
                                             {% if job_task.status == 'Running'%}
-                                                <a class="fa fa-stop btn btn-secondary" href="/job_task/stop/{{job_task.id}}" role="button" title=stop></a>
+                                                <a class="bi bi-stop btn btn-secondary" href="/job_task/stop/{{job_task.id}}" role="button" title=stop></a>
                                             {% endif %}
                                         </td>
                                     </tr>
@@ -168,14 +168,14 @@
                 </div>
                 </div>
             {% endfor %}
-        {% endif %} 
-    
+        {% endif %}
+
         <h2 class="d-lg-inline" class="mt-2">Queued Jobs</h1>
         {% if not queued_jobs %}
-            <p class="mt-3">No Queued Jobs</p> 
+            <p class="mt-3">No Queued Jobs</p>
         {% else %}
-            <button type="button" class="fa fa-minus btn btn-secondary btn-sm mb-2 ml-2" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="true" aria-controls="{{collapse_all}}" title="Collapse all queued jobs"></button>
-            
+            <button type="button" class="bi bi-dash btn btn-secondary btn-sm mb-2 ml-2" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="true" aria-controls="{{collapse_all}}" title="Collapse all queued jobs"></button>
+
             {% for job in queued_jobs %}
                 <div class="card" style="margin-bottom:5px;">
                 <div class="card-header" id="headingOne">
@@ -185,25 +185,25 @@
                             {% if job_task.job_id == job.id %}
                                 {% if job_task.status == 'Running' %}
                                     <span id="job_status" class="pull-right">Running</span>
-                                {% endif %} 
-                            {% endif %} 
+                                {% endif %}
+                            {% endif %}
                         {% endfor %}
-    
-                        {% for customer in customers%} 
+
+                        {% for customer in customers%}
                             {% if customer.id == job.customer_id %}
                                 {{ customer.name }}:
                             {% endif %}
                         {% endfor %}
-                        {{job.name}} 
+                        {{job.name}}
                         {% for user in users %}
                             {% if user.id == job.owner_id %}
                                 ({{ user.first_name }} {{ user.last_name }})
-                            {% endif %} 
+                            {% endif %}
                         {% endfor %}
                     </button>
                     </h5>
                 </div>
-            
+
                 <div id="collapse{{job.id}}" class="collapse multi-collapse show" aria-labelledby="heading{{job.id}}" data-parent="#accordion">
                     <div class="card-body">
                     {% set total = namespace(value=0) %}
@@ -222,13 +222,13 @@
                             {% endif %}
                         {% endif %}
                     {% endfor %}
-    
+
                     <!--Bar graph of hashes cracked --><br>
                     <table class="table">
                         <thead>
                             <tr>
                             <th scope="col">Task Name</th>
-                            <th scope="col">Status</th>                  
+                            <th scope="col">Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -253,8 +253,8 @@
                     </div>
                 </div>
                 </div>
-            {% endfor %}    
-        {% endif %} 
+            {% endfor %}
+        {% endif %}
     {% endif %}
 
 </div>

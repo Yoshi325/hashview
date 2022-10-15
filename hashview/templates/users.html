@@ -44,9 +44,9 @@ These are the awesome people that use Hashview.
                                 {% endif %}
                             </td>
                             <td>
-                                <button type="button" class="fa fa-info btn btn-info" data-toggle="modal" data-target="#infoModal{{user.id}}" title=Info></button>
-                                <button type="button" class="fa fa-undo btn btn-warning" data-toggle="modal" data-target="#resetModal{{user.id}}" title='Reset Password'></button>
-                                <button type="button" class="fa fa-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{user.id}}" title=Delete></button>
+                                <button type="button" class="bi bi-info btn btn-info" data-toggle="modal" data-target="#infoModal{{user.id}}" title=Info></button>
+                                <button type="button" class="bi bi-arrow-counterclockwise btn btn-warning" data-toggle="modal" data-target="#resetModal{{user.id}}" title='Reset Password'></button>
+                                <button type="button" class="bi bi-trash btn btn-danger" data-toggle="modal" data-target="#deleteModal{{user.id}}" title=Delete></button>
                             </td>
                         </tr>
                     {% endfor %}
@@ -89,7 +89,7 @@ These are the awesome people that use Hashview.
                                         {% endfor %}
                                     </td>
                                 </tr>
-                                <tr>                              
+                                <tr>
                                     <th scope="row">Associated Rules</th>
                                     <td>
                                         {% for rule in rules %}
@@ -99,7 +99,7 @@ These are the awesome people that use Hashview.
                                         {% endfor %}
                                     </td>
                                 </tr>
-                                <tr>  
+                                <tr>
                                     <th scope="row">Associated Tasks</th>
                                     <td>
                                         {% for task in tasks %}
@@ -110,7 +110,7 @@ These are the awesome people that use Hashview.
                                     </td>
                                 </tr>
                                 </tr>
-                                <tr>   
+                                <tr>
                                     <th scope="row">Associated Task Groups</th>
                                     <td>
                                         {% for task_group in task_groups %}
@@ -119,7 +119,7 @@ These are the awesome people that use Hashview.
                                             {% endif %}
                                         {% endfor %}
                                     </td>
-                                </tr>                                
+                                </tr>
                             </tbody>
                       </table>
                 </div>
